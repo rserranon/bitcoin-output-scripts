@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
-# created a symlink to bitcoin-core test_framework
-# ln -fs ~/bitcoin-core/bitcoin/test/functional/test_framework ./test_framework/
+# Copyright (c) 2017-2023 The Bitcoin Core developers
+# Distributed under the MIT software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
 from test_framework.blocktools import (
     create_block,

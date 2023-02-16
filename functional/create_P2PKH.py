@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2017-2019 The Bitcoin Core developers
+# Copyright (c) 2017-2023 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """
@@ -17,7 +17,11 @@ from test_framework.descriptors import drop_origins
 class P2pkhTest(BitcoinTestFramework):
 
     def set_test_params(self):
-        """This method has to be overwritten to specify test parameters"""
+        """
+           Note: this function besides to skip the test if no wallet was compiled, creates 
+           a default wallet.
+           NOTE: if you remove it you HAVE to create the wallet, otherwise RPCs calls will fail
+        """
         self.setup_clean_chain = True
         self.num_nodes = 1
         self.extra_args = [[]]
@@ -43,7 +47,7 @@ class P2pkhTest(BitcoinTestFramework):
 
         address = self.nodes[0].getnewaddress()
         pubkey = self.nodes[0].getaddressinfo(address)['pubkey']
-        pubkey_hash = hash160(pubkey.encode()) # .encode() is used to convert to bytes 
+        pubkey_hash = hash160(pubkey.encode()) 
 
         script_pubkey = keyhash_to_p2pkh_script(pubkey_hash) 
         # Our Script in a Pay to Public to Key Hash

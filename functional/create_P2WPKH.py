@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Copyright (c) 2017-2023 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -32,7 +33,7 @@ class P2wpkh(BitcoinTestFramework):
         """
            Note: this function besides to skip the test if no wallet was compiled, creates 
            a default wallet.
-           NOTE: if you remove it you HAVE to create the wallet, otherwise RPCs calls will fail
+           NOTE: if you remove it, you HAVE to create the wallet, otherwise RPCs calls will fail
         """
         self.skip_if_no_wallet()
 

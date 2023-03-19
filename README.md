@@ -30,13 +30,13 @@ Standard transaction types accepted by the Bitcoin network and the miners.
 |-------------------------------------	 |---------------------------------------------------------------------	            |-----------------------------	  |------------------	|------------------------------------------------------------------------------ |
 | [`P2PK`](functional/create_P2PK.py)    | `<pubKey>`<br>`OP_CHECKSIG`                                           	        | `<signature>`                   |                  	|                                        	                                    |
 | [`P2PKH`](functional/create_P2PKH.py)  | `OP_DUP`<br>`OP_HASH160`<br>`<pubKeyHash>`<br>`OP_EQUALVERIFY`<br>`OP_CHECKSIG` 	| `<signature>`<br>`<publicKey>`  |                  	|                                        	                                    |
-| [`P2SH`]()          	                 | `OP_HASH160`<br>`scriptHash`<br>`OP_EQUAL`                                	    | `data_pushes`<br>`<redemScript>`| `arbitrary`        	|                                        	                                    |
+| `P2SH`          	                     | `OP_HASH160`<br>`scriptHash`<br>`OP_EQUAL`                                	    | `data_pushes`<br>`<redemScript>`| `arbitrary`        	|                                        	                                    |
 | [`P2WPKH`](functional/create_P2WPKH.py)| 0<br>`<pubKeyHash>`                                                             	|                             	  |                  	| `<signature>`<br>`<publicKey>`                                                |
-| [`P2WSH`]()              	             | 0<br>`<witnessScriptHash>`                                                      	|                             	  |                  	| `<witnessScript>`                                                             |
-| [`P2SH-P2WPKH`]()       	             | `OP_HASH160`<br>`<redemScriptHash>`<br>`OP_EQUAL`                                | `<redemScript>`                 | 0<br>`<pubKeyHash>` | `<signature>`<br>`<publicKey>`                                                |
-| [`P2SH-P2WSH`]()         	             | `OP_HASH160`<br>`<redemScriptHash>`                                            	| `<redemScript>`                 | 0<br>`<scriptHash>`	| `<witnessScript>`                                                             |
-| [`P2TR (key path)`]()    	             | 1<br>`<publicKey>`                                                             	|                             	  |                  	| `<signature>`                              	                                |
-| [`P2TR (script path`)]()               | 1<br>`<publicKey>`                                                             	|                             	  |                  	| `[Stack element(s) satisfying tapscript]`<br>`<script>`<br>`[control_block]`  |
+| `P2WSH`              	             | 0<br>`<witnessScriptHash>`                                                      	|                             	  |                  	| `<witnessScript>`                                                             |
+| `P2SH-P2WPKH`       	                 | `OP_HASH160`<br>`<redemScriptHash>`<br>`OP_EQUAL`                                | `<redemScript>`                 | 0<br>`<pubKeyHash>` | `<signature>`<br>`<publicKey>`                                                |
+| `P2SH-P2WSH`         	                 | `OP_HASH160`<br>`<redemScriptHash>`                                            	| `<redemScript>`                 | 0<br>`<scriptHash>`	| `<witnessScript>`                                                             |
+| [`P2TR (key path)`](functional/create_P2TR_Key_Path.py)    	             | 1<br>`<publicKey>`                                                             	|                             	  |                  	| `<signature>`                              	                                |
+| [`P2TR (script path`)](functional/P2TR_Script_Path_Case_Study.md)               | 1<br>`<publicKey>`                                                             	|                             	  |                  	| `[Stack element(s) satisfying tapscript]`<br>`<script>`<br>`[control_block]`  |
 
 This table was produced by Gloria Zhao[^1] 
 
@@ -48,7 +48,7 @@ This table was produced by Gloria Zhao[^1]
 * [Create MultiSig](functional/create_MultiSig.py) (legacy Multisig)
 
 #### Segwit V0
-* [Create P2WPKH](functional/P2WPKH_Case_Study.md) case study, [P2PKH](functional/create_P2WPKH.py) Python script
+* [Create P2WPKH](functional/P2WPKH_Case_Study.md) case study, [P2WPKH](functional/create_P2WPKH.py) Python script
 
 #### Segwit V1
 * [Create P2TR (Key Path)](functional/P2TR_Key_path_Case_Study.md) case study, [P2TR Key Path](functional/create_P2TR_Key_Path.py) Python script
